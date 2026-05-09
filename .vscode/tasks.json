@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build SFML Project",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "${workspaceFolder}/src/main.cpp",
+        "${workspaceFolder}/src/Visualizer.cpp",
+        "${workspaceFolder}/src/BubbleSort.cpp",
+        "${workspaceFolder}/src/SelectionSort.cpp",
+        "${workspaceFolder}/src/MergeSort.cpp",
+        "-o",
+        "${workspaceFolder}/bin/main.exe",
+        "-std=c++17",
+        "-Wall",
+        "-I${workspaceFolder}/include",
+        "-L${workspaceFolder}/lib",
+        "-lsfml-graphics",
+        "-lsfml-window",
+        "-lsfml-system"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "Run SFML Project",
+      "type": "shell",
+      "command": "${workspaceFolder}\\bin\\main.exe",
+      "options": {
+        "cwd": "${workspaceFolder}\\bin"
+      },
+      "dependsOn": "Build SFML Project",
+      "problemMatcher": []
+    }
+  ]
+}
