@@ -72,6 +72,13 @@ static void quickSortHelper(Visualizer& viz, std::vector<int>& arr, int low, int
         // this sorts the right side of the pivot
         quickSortHelper(viz, arr, pivotIndex + 1, high);
     }
+    else if (low == high)
+    {
+        // this marks the single element as sorted
+        viz.markSorted(low);
+        viz.updateDisplay();
+        viz.delay(10);
+    }
 }
 
 // this function does the quick sort
@@ -79,4 +86,13 @@ void quickSort(Visualizer& viz, std::vector<int>& arr)
 {
     // this calls the helper with the full array range
     quickSortHelper(viz, arr, 0, (int)arr.size() - 1);
+
+    // this final sweep ensures all elements are marked green at the end
+    for (int i = 0; i < (int)arr.size(); i++)
+    {
+        if (!viz.isOpen()) return;
+        viz.markSorted(i);
+        viz.updateDisplay();
+        viz.delay(10);
+    }
 }

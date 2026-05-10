@@ -1,58 +1,49 @@
 #include "Visualizer.h"
 #include <vector>
 
-// this function does the insertion sort
+//main fucntion for the insertion sort
 void insertionSort(Visualizer& viz, std::vector<int>& arr)
 {
-    // this gets the array size
     int n = arr.size();
 
-    // this is the main outer loop, starts from second element
+    // main outer loop from the second element
     for (int i = 1; i < n; i++)
     {
-        // this checks if user closed the window
-        if (!viz.isOpen())
-        {
-            return;
-        }
+        if (!viz.isOpen()){return;}
 
-        // this stores the current element that needs to be placed
+        // storing the current index that needs to be placed
         int key = arr[i];
         int j = i - 1;
 
-        // this loop shifts larger elements one position to the right
+        // shifting the larger elents one position to the right
         while (j >= 0 && arr[j] > key)
         {
-            // this checks if user closed the window
-            if (!viz.isOpen())
-            {
-                return;
-            }
+            if (!viz.isOpen()){return;}
 
-            // this highlights the bars being compared
+            // highlighting the bars being compared
             viz.setHighlight(j, j + 1, sf::Color::Red);
             viz.updateDisplay();
             viz.delay(10);
 
-            // this shifts the element one position to the right
+            // shifting the elements
             arr[j + 1] = arr[j];
             j--;
 
-            // this shows the shift
+            // showing the changing
             viz.updateDisplay();
             viz.delay(10);
         }
 
-        // this places the key in its correct position
+        // one uping the key
         arr[j + 1] = key;
 
-        // this marks the current position as part of sorted region
+        //marking the sorted elements
         viz.markSorted(i);
         viz.updateDisplay();
         viz.delay(10);
     }
 
-    // this marks the first element as sorted
+    // marks the element as sorted
     viz.markSorted(0);
     viz.updateDisplay();
 }

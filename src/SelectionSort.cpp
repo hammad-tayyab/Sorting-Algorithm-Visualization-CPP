@@ -1,36 +1,33 @@
 #include "Visualizer.h"
 #include <vector>
-
-// this function does the selection sort
+//main function
 void selectionSort(Visualizer& viz, std::vector<int>& arr)
 {
     int n = arr.size();
 
-    // this loop finds the smallest element
+    // finding the smallest element
     for (int i = 0; i < n - 1; i++)
     {
         if (!viz.isOpen()) return;
 
         int minIndex = i;
-
         // this loop looks through the unsorted part
         for (int j = i + 1; j < n; j++)
         {
             if (!viz.isOpen()) return;
 
-            // this highlights what is being compared
             viz.setHighlight(minIndex, j, sf::Color::Red);
             viz.updateDisplay();
             viz.delay(10);
 
-            // this updates the min index if smaller value found
+            // if smaller value found replace the min
             if (arr[j] < arr[minIndex])
             {
                 minIndex = j;
             }
         }
 
-        // this swaps the min element into place
+        // swaps into place
         if (minIndex != i)
         {
             int temp = arr[i];
@@ -42,12 +39,10 @@ void selectionSort(Visualizer& viz, std::vector<int>& arr)
             viz.delay(10);
         }
 
-        // this marks the element as sorted
         viz.markSorted(i);
         viz.updateDisplay();
     }
-
-    // this marks the last element sorted
+//marking as sorted
     viz.markSorted(n - 1);
     viz.updateDisplay();
 }

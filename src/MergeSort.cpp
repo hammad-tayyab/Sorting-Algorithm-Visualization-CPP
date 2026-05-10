@@ -1,31 +1,30 @@
 #include "Visualizer.h"
 #include <vector>
 
-// this function merges two sorted halves
+// merge function
 void merge(Visualizer& viz, std::vector<int>& arr, int left, int mid, int right)
 {
     int n1 = mid - left + 1;
     int n2 = right - mid;
 
-    // this makes temporary arrays
+    // making the two half arrays
     std::vector<int> L(n1), R(n2);
 
-    // this copies data to the temporary arrays
+    // copying the data in those arrays
     for (int i = 0; i < n1; i++)
         L[i] = arr[left + i];
     for (int j = 0; j < n2; j++)
         R[j] = arr[mid + 1 + j];
-
     int i = 0; 
     int j = 0; 
     int k = left; 
 
-    // this merges them back together
+    // this merging them back
     while (i < n1 && j < n2)
     {
         if (!viz.isOpen()) return;
 
-        // this highlights what is being compared
+        // highlighting the compared elements
         viz.setHighlight(left + i, mid + 1 + j, sf::Color::Red);
         viz.updateDisplay();
         viz.delay(10);
@@ -45,7 +44,7 @@ void merge(Visualizer& viz, std::vector<int>& arr, int left, int mid, int right)
         viz.updateDisplay();
     }
 
-    // this copies any left over elements
+    // copying any left over elements
     while (i < n1)
     {
         if (!viz.isOpen()) return;
@@ -56,7 +55,7 @@ void merge(Visualizer& viz, std::vector<int>& arr, int left, int mid, int right)
         viz.delay(10);
     }
 
-    // this copies any remaining right elements
+    // copying any remaining right elements
     while (j < n2)
     {
         if (!viz.isOpen()) return;
@@ -68,7 +67,7 @@ void merge(Visualizer& viz, std::vector<int>& arr, int left, int mid, int right)
     }
 }
 
-// this function sorts the array recursively
+// sorting function
 void mergeSortRecursive(Visualizer& viz, std::vector<int>& arr, int left, int right)
 {
     if (left < right)
@@ -84,14 +83,14 @@ void mergeSortRecursive(Visualizer& viz, std::vector<int>& arr, int left, int ri
     }
 }
 
-// this is the main entry point for merge sort
+// BEHOLD THE MAIN FUCNTION .....
 void mergeSort(Visualizer& viz, std::vector<int>& arr)
 {
     if (arr.empty()) return;
 
-    mergeSortRecursive(viz, arr, 0, arr.size() - 1);
+    mergeSortRecursive(viz, arr, 0, arr.size() - 1); //fucniton call
 
-    // this marks all bars as sorted
+    // markgin the sorted bar
     for (int i = 0; i < (int)arr.size(); i++)
     {
         viz.markSorted(i);

@@ -6,12 +6,12 @@ A simple, interactive tool to visualize how different sorting algorithms work in
 This project uses the **SFML 2.5** library to render an array of integers as a series of bars. As the algorithm sorts the array, the bars move and change colors to show comparisons and swaps.
 
 ### Algorithms Included
-- **Bubble Sort**: Compares adjacent elements and "bubbles" the largest to the end.
-- **Selection Sort**: Finds the minimum element and places it at the start.
-- **Merge Sort**: A divide-and-conquer algorithm that recursively splits and merges the array.
-- **Insertion Sort**: Builds the sorted array one item at a time by inserting elements into their correct position.
-- **Quick Sort**: Uses a pivot to partition the array into smaller sub-arrays.
-- **Heap Sort**: Uses a binary heap data structure to sort elements.
+- **1.Bubble Sort**: Compares adjacent elements and "bubbles" the largest to the end.
+- **2.Selection Sort**: Finds the minimum element and places it at the start.
+- **3.Merge Sort**: A divide-and-conquer algorithm that recursively splits and merges the array.
+- **4.Insertion Sort**: Builds the sorted array one item at a time by inserting elements into their correct position.
+- **5.Quick Sort**: Uses a pivot to partition the array into smaller sub-arrays.
+- **6.Heap Sort**: Uses a binary heap data structure to sort elements.
 
 ## How it Works
 1. **Visualizer Class**: Handles the window creation, bar rendering, and coloring (Red for comparisons, Green for sorted elements).

@@ -4,9 +4,10 @@
 #include <thread>
 #include <chrono>
 #include <algorithm>
+using namespace std;
 
-// this is the constructor for the visualizer
-Visualizer::Visualizer(std::vector<int>& arr, std::string algoName)
+// defination of constructor
+Visualizer::Visualizer(vector<int>& arr, string algoName)
     : data(arr), algorithmName(algoName), fontLoaded(false)
 {
     // this gets the screen resolution
@@ -28,7 +29,7 @@ Visualizer::Visualizer(std::vector<int>& arr, std::string algoName)
     }
     else
     {
-        std::cout << "Warning: Could not load any font. Text will not be displayed." << std::endl;
+        cout << "Warning: Could not load any font. Text will not be displayed."<<endl;
         fontLoaded = false;
     }
 
@@ -40,7 +41,7 @@ Visualizer::Visualizer(std::vector<int>& arr, std::string algoName)
 // this function draws all the bars
 void Visualizer::drawBars()
 {
-    int maxValue = *std::max_element(data.begin(), data.end());
+    int maxValue = *max_element(data.begin(), data.end());
     int totalBars = data.size();
     float barWidth = (float)screenWidth / totalBars;
     float topMargin = 60.0f;
@@ -154,7 +155,7 @@ bool Visualizer::isOpen()
     return window.isOpen();
 }
 
-// this handles window events
+// this handles window events and pressing the esc key
 bool Visualizer::handleEvents()
 {
     sf::Event event;

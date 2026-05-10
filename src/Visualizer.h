@@ -1,29 +1,29 @@
 #ifndef VISUALIZER_H
 #define VISUALIZER_H
-
+//All the declarations are in this header file
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <string>
+using namespace std;
 
 class Visualizer
 {
 public:
-    // this is the constructor
-    Visualizer(std::vector<int>& arr, std::string algoName);
+    //constructor
+    Visualizer(vector<int>& arr, string algoName);
 
-    // this draws the bars
+    //draws the bars
     void drawBars();
 
-    // this sets the highlight for bars
+    //sets the highlight for bars
     void setHighlight(int idx1, int idx2, sf::Color color);
 
-    // this marks a bar as sorted
+    // this marks a bar as sorted (green)
     void markSorted(int idx);
 
-    // this updates the screen
     void updateDisplay();
 
-    // this adds a delay
+    // this adds a delay between the sorts so that we could see htem
     void delay(int ms);
 
     // this checks if window is open
@@ -35,14 +35,14 @@ public:
     sf::RenderWindow window;
 
 private:
-    std::vector<int>& data;
-    std::string algorithmName;
+    vector<int>& data;
+    string algorithmName;
     unsigned int screenWidth;
     unsigned int screenHeight;
     sf::Font font;
     bool fontLoaded;
-    std::vector<sf::Color> highlightColors;
-    std::vector<bool> sortedIndices;
+    vector<sf::Color> highlightColors;
+    vector<bool> sortedIndices;
 };
 
-#endif // VISUALIZER_H
+#endif
