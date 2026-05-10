@@ -9,6 +9,9 @@ This project uses the **SFML 2.5** library to render an array of integers as a s
 - **Bubble Sort**: Compares adjacent elements and "bubbles" the largest to the end.
 - **Selection Sort**: Finds the minimum element and places it at the start.
 - **Merge Sort**: A divide-and-conquer algorithm that recursively splits and merges the array.
+- **Insertion Sort**: Builds the sorted array one item at a time by inserting elements into their correct position.
+- **Quick Sort**: Uses a pivot to partition the array into smaller sub-arrays.
+- **Heap Sort**: Uses a binary heap data structure to sort elements.
 
 ## How it Works
 1. **Visualizer Class**: Handles the window creation, bar rendering, and coloring (Red for comparisons, Green for sorted elements).
@@ -16,6 +19,9 @@ This project uses the **SFML 2.5** library to render an array of integers as a s
    - `bubbleSort()`: Implements bubble sort with visualization calls.
    - `selectionSort()`: Implements selection sort with visualization calls.
    - `mergeSort()`: Implements merge sort with visualization calls.
+   - `insertionSort()`: Implements insertion sort with visualization calls.
+   - `quickSort()`: Implements quick sort with visualization calls.
+   - `heapSort()`: Implements heap sort with visualization calls.
    - `main()`: Handles the console menu and initializes the shuffled array.
 
 ## How to Run
@@ -31,5 +37,5 @@ cd bin
 ```
 
 ## Controls
-- Use the **Console** to select an algorithm (1-3) or exit (0).
+- Use the **Console** to select an algorithm (1-6) or exit (0).
 - Press **ESC** while a visualization is running to return to the menu.

@@ -3,13 +3,15 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 #include "Visualizer.h"
-
 using namespace std;
 
 // these are the sorting functions
 void bubbleSort(Visualizer& viz, std::vector<int>& arr);
 void selectionSort(Visualizer& viz, std::vector<int>& arr);
 void mergeSort(Visualizer& viz, std::vector<int>& arr);
+void insertionSort(Visualizer& viz, std::vector<int>& arr);
+void quickSort(Visualizer& viz, std::vector<int>& arr);
+void heapSort(Visualizer& viz, std::vector<int>& arr);
 
 int main()
 {
@@ -27,6 +29,9 @@ int main()
         cout << "  1. Bubble Sort" << endl;
         cout << "  2. Selection Sort" << endl;
         cout << "  3. Merge Sort" << endl;
+        cout << "  4. Insertion Sort" << endl;
+        cout << "  5. Quick Sort" << endl;
+        cout << "  6. Heap Sort" << endl;
         cout << "  0. Exit" << endl;
         cout << "\n Enter choice: ";
 
@@ -42,7 +47,7 @@ int main()
         }
 
         // this checks if choice is okay
-        if (choice < 0 || choice > 3)
+        if (choice < 0 || choice > 6)
         {
             cout << "\n Invalid choice. Please try again." << endl;
             continue;
@@ -61,6 +66,18 @@ int main()
         else if (choice == 3)
         {
             algoName = "Merge Sort";
+        }
+        else if (choice == 4)
+        {
+            algoName = "Insertion Sort";
+        }
+        else if (choice == 5)
+        {
+            algoName = "Quick Sort";
+        }
+        else if (choice == 6)
+        {
+            algoName = "Heap Sort";
         }
 
         // this fills the array with shuffled numbers 1 to 50
@@ -92,6 +109,18 @@ int main()
         else if (choice == 3)
         {
             mergeSort(viz, arr);
+        }
+        else if (choice == 4)
+        {
+            insertionSort(viz, arr);
+        }
+        else if (choice == 5)
+        {
+            quickSort(viz, arr);
+        }
+        else if (choice == 6)
+        {
+            heapSort(viz, arr);
         }
 
         // this keeps the window open
