@@ -3,6 +3,7 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 #include "Visualizer.h"
+#include "TimeStorer.h"
 using namespace std;
 
 // these are the sorting functions
@@ -16,7 +17,10 @@ void heapSort(Visualizer& viz, vector<int>& arr);
 int main()
 {
     int arraySize = 50;
-    
+
+    // one storer instance that lives for the whole session
+    TimeStorer storer;
+
     //menu loop
     while (true)
     {
@@ -96,7 +100,9 @@ int main()
         viz.updateDisplay();
         viz.delay(500);
 
-        // this starts the sorting
+        // this starts the sorting and measures the time taken
+        storer.startTimer();
+
         if (choice == 1)
         {
             bubbleSort(viz, arr);
@@ -122,6 +128,10 @@ int main()
             heapSort(viz, arr);
         }
 
+        // stop the timer and store the result
+        double elapsed = storer.stopTimer();
+        storer.saveResult(algoName, elapsed, arraySize);
+
         // this keeps the window open
         while (viz.isOpen())
         {
@@ -131,8 +141,11 @@ int main()
             }
             viz.delay(16);
         }
-        system("cls"); //claring the console after the visulization
+        system("cls"); // clearing the console after the visualization
         cout << " Visualization complete. Returning to menu..." << endl;
+
+        // print the full session timing table
+        storer.printAll();
     }
 
     return 0;

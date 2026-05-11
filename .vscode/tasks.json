@@ -14,6 +14,7 @@
         "${workspaceFolder}/src/insertionSort.cpp",
         "${workspaceFolder}/src/quickSort.cpp",
         "${workspaceFolder}/src/heapSort.cpp",
+        "${workspaceFolder}/src/TimeStorer.cpp",
         "-o",
         "${workspaceFolder}/bin/main.exe",
         "-std=c++17",
