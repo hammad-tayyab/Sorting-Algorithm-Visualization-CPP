@@ -43,7 +43,7 @@ void bubbleSort(Visualizer& viz, vector<int>& arr)
         viz.updateDisplay();
     }
 
-    // this marks the last element as sorted
+
     viz.markSorted(0);
     viz.updateDisplay(); //updatign afterwards
 }

@@ -16,6 +16,12 @@ struct SortResult
 
 class TimeStorer
 {
+    private:
+    // the point when the timer was started
+    chrono::high_resolution_clock::time_point startTime;
+//the results of all the sorts
+    vector<SortResult> results;
+    
 public:
 
     void startTimer();
@@ -29,11 +35,7 @@ public:
     // printing all the results
     void printAll() const;
 
-private:
-    // the point when the timer was started
-    chrono::high_resolution_clock::time_point startTime;
-//the results of all the sorts
-    vector<SortResult> results;
+
 };
 
 #endif

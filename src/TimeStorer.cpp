@@ -20,10 +20,10 @@ double TimeStorer::stopTimer()
 // storing the result
 void TimeStorer::saveResult(string name, double ms, int size)
 {
-    SortResult result;
+    SortResult result;//struct to hold the result
     result.algorithmName = name;
-    result.elapsedMs     = ms;
-    result.arraySize     = size;
+    result.elapsedMs = ms;
+    result.arraySize = size;
     results.push_back(result);
 }
 

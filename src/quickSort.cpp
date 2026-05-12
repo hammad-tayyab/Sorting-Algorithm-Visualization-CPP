@@ -11,7 +11,7 @@ static int partition(Visualizer& viz, std::vector<int>& arr, int low, int high)
     // this loop moves elements smaller than pivot to the left side
     for (int j = low; j < high; j++)
     {
-        // this checks if user closed the window
+      
         if (!viz.isOpen())
         {
             return i + 1;

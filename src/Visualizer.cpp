@@ -1,8 +1,6 @@
 #include "Visualizer.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include <thread>
-#include <chrono>
 #include <algorithm>
 using namespace std;
 
